@@ -1,0 +1,85 @@
+{
+    "journal": {
+      "nomJournal": "Among Us Insider",
+      "phraseAccroche": "Votre source d'informations sur le jeu Among Us",
+      "texteAppelAction": "Inscrivez-vous pour recevoir notre newsletter et rester à jour sur les dernières nouveautés et actualités d'Among Us !",
+      "articlePrincipal": {
+        "titre": "Les dernières mises à jour et actualités d'Among Us : ce que chaque imposteur doit savoir",
+        "description": "Restez au courant des nouvelles fonctionnalités, des stratégies de jeu et des événements spéciaux dans l'univers d'Among Us.",
+        "date": "25 Avril 2024",
+        "theme": "Actualités Among Us",
+        "image":""
+      },
+      "articles": [
+        {
+          "titre": "Guide du débutant : conseils pour survivre en tant qu'équipage ou triompher en tant qu'imposteur",
+          "date": "20 Avril 2024",
+          "theme": "Débutants",
+          "image":""
+        },
+        {
+          "titre": "Entretien avec un pro : stratégies avancées pour détecter les imposteurs et gagner",
+          "date": "15 Avril 2024",
+          "theme": "Stratégies",
+          "image":""
+        },
+        {
+          "titre": "Top 10 des moments les plus mémorables des parties d'Among Us",
+          "date": "5 Avril 2024",
+          "theme": "Moments",
+          "image":""
+        },
+        {
+          "titre": "Analyse : l'impact d'Among Us sur la culture populaire et le jeu social",
+          "date": "28 Mars 2024",
+          "theme": "Culture",
+          "image":""
+        },
+        {
+          "titre": "Les dernières actualités sur les mises à jour et les patchs d'Among Us",
+          "date": "20 Mars 2024",
+          "theme": "Mises à jour",
+          "image":""
+        }
+      ],
+      "themes": [
+        {
+          "nom": "Débutants",
+          "description": "Conseils et astuces pour les nouveaux joueurs qui découvrent l'univers d'Among Us et apprennent les bases du jeu."
+        },
+        {
+          "nom": "Stratégies",
+          "description": "Stratégies avancées, analyses de jeu et conseils pour améliorer vos compétences et votre taux de réussite dans Among Us."
+        },
+        {
+          "nom": "Moments",
+          "description": "Revues des moments les plus hilarants, surprenants et mémorables des parties d'Among Us, avec des réflexions sur leur signification et leur impact."
+        },
+        {
+          "nom": "Culture",
+          "description": "Analyses sur l'influence d'Among Us sur la culture populaire, les memes, et son rôle dans le jeu social en ligne."
+        },
+        {
+          "nom": "Mises à jour",
+          "description": "Annonces et résumés des dernières mises à jour, corrections de bugs et améliorations apportées à Among Us."
+        }
+      ],
+      "auteurs": [
+        {
+          "prenom": "Purple",
+          "typeExperience": "Expert Among Us",
+          "presentation": "Avec des centaines d'heures de jeu et une passion pour Among Us, je partage mes connaissances et mes analyses pour aider les joueurs à devenir de meilleurs imposteurs ou équipages."
+        },
+        {
+          "prenom": "Yellow",
+          "typeExperience": "Stratège de jeu",
+          "presentation": "En tant que stratège de jeu, je vous offre des conseils avancés et des stratégies pour dominer chaque partie d'Among Us."
+        },
+        {
+          "prenom": "Bob",
+          "typeExperience": "Journaliste de jeux vidéo",
+          "presentation": "En tant que journaliste spécialisé dans les jeux vidéo, je vous propose des analyses approfondies, des actualités et des critiques sur l'univers d'Among Us."
+        }
+      ]
+    }
+  }
