@@ -1,121 +1,100 @@
-function getData() {
-   fetch('data.json')
-     .then((response) => {
-       if (!response.ok) {
-         throw new Error('Network response was not ok');
-       }
-       return response.json();
-     })
-     .then((data) => {
-       // Traitez les données comme vous le souhaitez
-       console.log('Données récupérées du fichier JSON :', data);
-       /// ON ECRIT LE CODE ICI ! 
-       function afficherTitreJournal() {
-        let title= data.journal.nomJournal;
-        console.log(title);
-        let titleID= document.getElementById("title")
-        console.log(titleID);
-        titleID.insertAdjacentHTML("beforeend", title);
-       }
-   function afficherLesThemes(){
-     let themes = data.journal.themes;
-       console.log(themes);
-       themes.forEach(element => {
-         let themeTitre = element.nom
-         console.log(themeTitre);
-         let liste = `<li >
-           <a href="#">${themeTitre}</a>
-           </li>`;
-         let themesId = document.getElementById("themes")
-         console.log(themesId);
-         themesId.insertAdjacentHTML("beforeend",liste )
-       })
-   }
-   function articlepprincipal(){
-   let articleprincipal = data.journal.articlePrincipal
-   console.log(articleprincipal);
-   let articleprincipalId = document.getElementById("articlePrincipal")
-   console.log(articleprincipalId);
-   let title = articleprincipal.titre;
-   console.log(title);
-   let date = articleprincipal.date;
-   console.log(date);
-   let description = articleprincipal.description;
-   console.log(description);
-   let thmmes = articleprincipal.theme
-   console.log(thmmes);
-   let image = articleprincipal.image
-   console.log(image);
-   let articlepprincipalall = `<div class="fond">
-   <h1>${title}</h1>
-   <p>${description}</p>
-   <p>${date}</p>
-   <h4>${thmmes}</h4>
-   <img src="${image}" alt="">
-   </div>`
-   articleprincipalId.insertAdjacentHTML("beforeend", articlepprincipalall)
-   }
-   function LesArticles() {
-     let articles = data.journal.articles
-   console.log(articles);
-   articles.forEach(element => {
-     let articleId = document.getElementById("articles")
-   console.log(articleId);
-   let titre = element.titre
-   console.log(titre);
-   let date  = element.date
-   console.log(date);
-   let theme  = element.theme
-   console.log(theme);
-   let image  = element.image
-   console.log(image);
-   let arti = `<div>
-   <img src="${image}" alt="">
-   <h1>${titre}</h1>
-   <h3>${theme}-${date}</h3>
-   <a href="">lire article</a>
-   </div>
-   <div>`
-   console.log(arti);
-   articleId.insertAdjacentHTML("beforeend",arti)
-   });
-   }
-   function touslesauteurs() {
-   let auteurs = data.journal.auteurs
-   console.log(auteurs);
-   auteurs.forEach(element => {
-   let auteurId = document.getElementById("auteurs")
-   console.log(auteurId);
-   let prenom = element.prenom
-   console.log(prenom);
-   let expreience = element.typeExperience
-   console.log(expreience);
-   let presentation = element.presentation
-   console.log(presentation);
-   let lesauteurs = ` <div>
-   <img src="" alt="">
-   <h2>${prenom}</h2>
-   <h3>${expreience}</h3>
-   <p>${presentation}</p>
-   </div>`
-   console.log(lesauteurs);
-   auteurId.insertAdjacentHTML("beforeend", lesauteurs)
-   });
-   }
-       afficherTitreJournal();
-       afficherLesThemes()
-       articlepprincipal()
-         LesArticles()
-         touslesauteurs()
-      
-
-      
-
-       /// FIN DU CODE
-     })
-     .catch((error) => console.error('Erreur lors de la lecture des données :', error));
+CSS : function getData() {
+  fetch('data.json')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Traitez les données comme vous le souhaitez
+      console.log('Données récupérées du fichier JSON :', data);
+      /// ON ECRIT LE CODE ICI !
+      updateCallToAction(data);
+      updateMainArticle(data);
+      updateArticles(data);
+      updateAuthors(data);
+      updateThemes(data);
+/// FIN DU CODE
+})
+  .catch((error) => console.error('Erreur lors de la lecture des données :', error));
+  }
+function afficherTitreJournal() {
+  let title= data.journal.nomJournal;
+  console.log(title);
+  let titleID= document.getElementById("title")
+  console.log(titleID);
+  titleID.insertAdjacentHTML("beforeend", title);
  }
- 
- getData();
-
- ///ON écrit les fonctions ici
+function afficherLesThemes(){
+let themes = data.journal.themes;
+ console.log(themes);
+ themes.forEach(element => {
+   let themeTitre = element.nom
+   console.log(themeTitre);
+   let liste = `<li >
+     <a href="#">${themeTitre}</a>
+     </li>`;
+   let themesId = document.getElementById("themes")
+   console.log(themesId);
+   themesId.insertAdjacentHTML("beforeend",liste )
+ })
+}
+function updateCallToAction(data) {
+ let texteAppelAction = data.journal.texteAppelAction;
+ let texteAppelActionReplacment = document.querySelector('#appel_action');
+ texteAppelActionReplacment.textContent = texteAppelAction;
+}
+function updateMainArticle(data) {
+ let articlePrincipalTitle = data.journal.articlePrincipal.titre;
+ let articlePrincipalTitleReplacment = document.querySelector('#article_principal_title');
+ articlePrincipalTitleReplacment.textContent = articlePrincipalTitle;
+ let articlePrincipalTheme = data.journal.articlePrincipal.theme;
+ let articlePrincipalDate = data.journal.articlePrincipal.date;
+ let articlePrincipalThemeDateReplacment = document.querySelector('#article_principal_theme_date');
+ articlePrincipalThemeDateReplacment.textContent = `${articlePrincipalTheme} - ${articlePrincipalDate}`;
+ let articlePrincipalDescription = data.journal.articlePrincipal.description;
+ let articlePrincipalDescriptionReplacment = document.querySelector('#article_principal_description');
+ articlePrincipalDescriptionReplacment.textContent = articlePrincipalDescription;
+}
+function updateArticles(data) {
+ let articles = data.journal.articles;
+ articles.forEach((article, index) => {
+     let articleTitre = article.titre;
+     let articleTheme = article.theme;
+     let articleDate = article.date;
+     let articleImage = article.image;
+     let articleTitreReplacement = document.querySelectorAll('.article_title')[index];
+     let articleThemeDateReplacement = document.querySelectorAll('.article_theme_date')[index];
+     let articleImageReplacement = document.querySelectorAll('.article_image')[index];
+     articleTitreReplacement.textContent = articleTitre;
+     articleThemeDateReplacement.textContent = `${articleTheme} - ${articleDate}`;
+     articleImageReplacement.src = articleImage;
+ });
+}
+function updateAuthors(data) {
+ let auteurs = data.journal.auteurs;
+ auteurs.forEach((auteur, index) => {
+     let prenomAuteur = auteur.prenom;
+     let presentation = auteur.presentation;
+     let imageAuteur = auteur.image;
+     let auteurNomReplacement = document.querySelectorAll('.team_member_name')[index];
+     let auteurRoleReplacement = document.querySelectorAll('.team_member_role')[index];
+     let auteurImageReplacement = document.querySelectorAll('.team_member_image')[index];
+     auteurNomReplacement.textContent = prenomAuteur;
+     auteurRoleReplacement.textContent = presentation;
+     auteurImageReplacement.src = imageAuteur;
+ });
+}
+function updateThemes(data) {
+ let themes = data.journal.themes;
+ themes.forEach((theme, index) => {
+     let nomTheme = theme.nom;
+     let descriptionTheme = theme.description;
+     let themeNomReplacement = document.querySelectorAll('.theme_nom')[index];
+     let themeDescriptionReplacement = document.querySelectorAll('.theme_description')[index];
+     themeNomReplacement.textContent = nomTheme;
+     themeDescriptionReplacement.textContent = descriptionTheme;
+ });
+}
+getData();
